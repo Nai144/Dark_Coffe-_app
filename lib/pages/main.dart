@@ -1,9 +1,16 @@
+import 'package:dark_coffe_app/pages/my_favorite_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences_screen.dart';
+import 'package:dark_coffe_app/pages/search_all_screen.dart';
+import 'package:dark_coffe_app/pages/search_recipes_screen.dart';
+import 'package:dark_coffe_app/pages/search_review_screen.dart';
 import 'package:flutter/material.dart';
+
 
 void main() {
   runApp(MaterialApp(
     title: 'Navigation Basics',
     home: const HomePage(),
+    debugShowCheckedModeBanner:false,
     theme: ThemeData(
       brightness: Brightness.dark,
     //  primaryColor: Colors.lightBlue[800],
@@ -21,6 +28,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
  int _selectedIndex = 1;
+  
 
  static const List<Widget> _pages = <Widget>[
     MyFavoriteScreen(),
@@ -34,6 +42,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _onSearchPressed() {
+    Navigator.push( context,
+    MaterialPageRoute(builder: (context) => const SearchAllScreen()));
+          
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +58,12 @@ class _HomePageState extends State<HomePage> {
             color: Colors.amber[800],
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: _onSearchPressed,
+            icon: const Icon(Icons.search)
+          ),
+        ],
       ),
         drawer: Drawer(
           child: ListView(
@@ -190,171 +210,10 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-class MyFavoriteScreen extends StatelessWidget {
-  const MyFavoriteScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Mis Favoritos Screen',
-          style: TextStyle(
-            color: Colors.amber[800]
-          ),
-        ),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!',
-            
-          ),
-          
-        ),
-      ),
-    );
-  }
-}
-class MyPreferencesScreen extends StatelessWidget {
-  const MyPreferencesScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Mis Preferencias Screen',
-          style: TextStyle(
-            color: Colors.amber[800],
-          ) ,
-        ),
-      ),
-      body: Center(
-        child: 
-        ElevatedButton(
-          child: Text('My Preferences List Screen',
-            style: TextStyle(
-              color: Colors.amber[800],
-            ),
-          ),
-            onPressed: () {
-              Navigator.push( context,
-              MaterialPageRoute(builder: (context) => const MyPreferencesListScreen()),
-              );
-          },
-        ),
-      ),
-    );
-  }
-}
 
-class SearchAllScreen extends StatelessWidget {
-  const SearchAllScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search All Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!',
-            style: TextStyle(color: Colors.amber[800])
-          ),
-        ),
-      ),
-    );
-  }
-}
-class SearchReviewScreen extends StatelessWidget {
-  const SearchReviewScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search Review Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!',
-            style: TextStyle(color: Colors.amber[800])
-          ),
-        ),
-      ),
-    );
-  }
-}
-class SearchRecipesScreen extends StatelessWidget {
-  const SearchRecipesScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search Recipes Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
-class MyPreferencesListScreen extends StatelessWidget {
-  const MyPreferencesListScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Preferences List Screen'),
-      ),
-      body: Center(
-        child: 
-        ElevatedButton(
-          child: const Text('My Preferences Detail Screen'),
-            onPressed: () {
-              Navigator.push( context,
-              MaterialPageRoute(builder: (context) => const MyPreferencesDetailScreen()),
-              );
-          },
-        ),
-      ),
-    );
-  }
-}
-class MyPreferencesDetailScreen extends StatelessWidget {
-  const MyPreferencesDetailScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Preferences Detail Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
