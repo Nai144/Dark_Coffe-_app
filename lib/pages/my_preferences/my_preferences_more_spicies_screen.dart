@@ -1,21 +1,13 @@
-import 'package:dark_coffe_app/pages/search_all_screen.dart';
 import 'package:flutter/material.dart';
 
-class SearchReviewScreen extends StatelessWidget {
-  const SearchReviewScreen({super.key});
+class MyPreferencesListSpiciesScreen extends StatelessWidget {
+  const MyPreferencesListSpiciesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reviews Populares'),
-        actions: [
-          IconButton(
-            onPressed: (){Navigator.push( context,
-            MaterialPageRoute(builder: (context) => const SearchAllScreen()));},
-            icon: const Icon(Icons.search)
-          ),
-        ],
+        title: const Text('Otros Ingredientes '),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -23,26 +15,26 @@ class SearchReviewScreen extends StatelessWidget {
           buildCafeteraCard(
             context,
             '', //aqui iran los link de las imagenes en la version final
-            'Assuan Concepcion ', 
-            'Los cafes son de maquina, pero son baratos y muy grandes, es sabor es normal, pero en lo que se destaca aqui son los dulces los cuales son extremadamente ricos, ademas de que no te costaran un ojo de la cara.'
+            'Leche Entera ', 
+            'La Leche natural entera es obtenida a partir de leche fresca que sólo es sometida a enfriamiento, pasteurización y estandarización antes del tratamiento UHT (Ultra High Temperature), a 138 °C por 4 segundos. Esta leche al ser tratada y envasada en su lugar de origen, conserva sus características nutricionales y organolépticas. \$1.09.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Starbucks Talca ', 
-            '*Esta reseña esta bloqueda debido al uso indebido del lenguaje.*'
+            'Whisky Jack Daniels Tennessee 40° 750 cc ', 
+            'Suavizado gota a gota a través de 10 pies de carbón de arce azucarado, luego madurado en barriles artesanales. Solo está listo cuando nuestros catadores dicen que lo está. Lo juzgamos por su apariencia. Por su aroma. Y por supuesto, por cierto, por su sabor. Así lo hizo el propio Jack Daniel hace más de un siglo. Y cómo lo seguimos haciendo hoy. \$30.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Mar Bella Concepcion ', 
-            'Un lugar clasico si vas a Concepcion, siempre he prefiro este lugar a la fuente alemana, los cafes cortados con las torta amor son excelentes. '
+            'Crema Para Café Coffee Mate Original 435 g ', 
+            'Crema para café Coffee Mate Original, disfruta de la mejor forma para cortar tu Nescafé. Conoce Coffee - Mate que te dará la combinación perfecta para disfrutar de su increíble sabor. Es bajo en calorías, sin lactosa, 0% colesterol y bajo en grasas. Formato 435g \$4.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Fuente Alemana ', 
-            'Me vendieron en azucar por separado, vayan al Mar Bella.'
+            'Canela Molida Gourmet Sobre 15 g ', 
+            'La canela es la corteza de un árbol tropical. Tiene un sabor dulce, cálido y con notas a madera. Es muy versátil, por lo que es un excelente complemento tanto para preparaciones dulces como saladas. \$0.59.'
           ),
         ],
       ),
@@ -55,7 +47,7 @@ class SearchReviewScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SearchReviewDetailScreen(title: title, description: description, imagePath: imagePath),
+            builder: (context) => MyPreferencesDetailSpiciesScreen(title: title, description: description, imagePath: imagePath),
           ),
         );
       },
@@ -89,12 +81,12 @@ class SearchReviewScreen extends StatelessWidget {
   }
 }
 
-class SearchReviewDetailScreen extends StatelessWidget {
+class MyPreferencesDetailSpiciesScreen extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
 
-  const SearchReviewDetailScreen({super.key, required this.title, required this.description, required this.imagePath});
+  const MyPreferencesDetailSpiciesScreen({super.key, required this.title, required this.description, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -133,11 +125,11 @@ class SearchReviewDetailScreen extends StatelessWidget {
             onPressed: () {
               // Acción para añadir a favoritos
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Añadido a favoritos')),
+                const SnackBar(content: Text('Añadido a preferencias')),
               );
             },
-            tooltip: 'Añadir a favoritos',
-            child: const Icon(Icons.favorite),
+            tooltip: 'Añadir a preferencias',
+            child: const Icon(Icons.star),
            ),
            const SizedBox(height: 16), 
           FloatingActionButton(

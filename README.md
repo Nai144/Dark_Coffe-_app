@@ -1,16 +1,6 @@
 # dark_coffe_app
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+La aplicación dark coffe busca ayudar a los usuarios a ver y buscar recetas o reviews de cafés, lugares o 
+maquinas, todo lo que es relacionado al café, además cuenta con funciones de agregar a favoritos compartir.
+También puedes añadir recetas y ayudar a otras personas a adentrarse en el mundo café. La aplicación intenta 
+ser muy visual para que te sea mucho más fácil saber que puedes esperar al pulsar una publicación.

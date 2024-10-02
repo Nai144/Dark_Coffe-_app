@@ -1,5 +1,8 @@
-import 'package:dark_coffe_app/pages/my_prefences_cafeteras_screen.dart';
-import 'package:dark_coffe_app/pages/search_recipes_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences/my_prefences_cafeteras_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences/my_preferences_cafe_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences/my_preferences_more_spicies_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences/my_preferences_other_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class MyPreferencesScreen extends StatelessWidget {
@@ -62,7 +65,7 @@ class MyPreferencesScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SearchRecipesScreen()),
+                        MaterialPageRoute(builder: (context) => const MyPreferencesListCafeScreen()),
                       );
                     },
                      child: Card(
@@ -101,7 +104,7 @@ class MyPreferencesScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SearchRecipesScreen()),
+                        MaterialPageRoute(builder: (context) => const MyPreferencesListSpiciesScreen()),
                       );
                     },
                     child: Card(
@@ -136,7 +139,7 @@ class MyPreferencesScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SearchRecipesScreen()),
+                        MaterialPageRoute(builder: (context) => const MyPreferencesListOtherScreen()),
                       );
                     },
                      child: Card(
@@ -174,10 +177,3 @@ class MyPreferencesScreen extends StatelessWidget {
     );
   }
 }
-/*
-onPressed: () {
-              Navigator.push( context,
-              MaterialPageRoute(builder: (context) => const MyPreferencesListScreen()),
-              );
-          },
-*/

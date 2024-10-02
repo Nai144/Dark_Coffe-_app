@@ -13,6 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.2.7
 
 
 
@@ -25,7 +26,11 @@ dev_dependencies:
 
   flutter_lints: ^4.0.0
 
-
+flutter_native_splash:
+  color: "#000000"  
+  image: lib/assets/coffe-svgrepo-com.png  
+  android: true
+  ios: true
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -33,4 +38,5 @@ flutter:
 
   uses-material-design: true
 
-
+  assets:
+    - lib/assets/coffe-svgrepo-com.png

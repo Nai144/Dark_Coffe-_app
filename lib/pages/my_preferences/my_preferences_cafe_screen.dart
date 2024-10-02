@@ -1,21 +1,13 @@
-import 'package:dark_coffe_app/pages/search_all_screen.dart';
 import 'package:flutter/material.dart';
 
-class SearchReviewScreen extends StatelessWidget {
-  const SearchReviewScreen({super.key});
+class MyPreferencesListCafeScreen extends StatelessWidget {
+  const MyPreferencesListCafeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reviews Populares'),
-        actions: [
-          IconButton(
-            onPressed: (){Navigator.push( context,
-            MaterialPageRoute(builder: (context) => const SearchAllScreen()));},
-            icon: const Icon(Icons.search)
-          ),
-        ],
+        title: const Text('Café'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -23,26 +15,26 @@ class SearchReviewScreen extends StatelessWidget {
           buildCafeteraCard(
             context,
             '', //aqui iran los link de las imagenes en la version final
-            'Assuan Concepcion ', 
-            'Los cafes son de maquina, pero son baratos y muy grandes, es sabor es normal, pero en lo que se destaca aqui son los dulces los cuales son extremadamente ricos, ademas de que no te costaran un ojo de la cara.'
+            '1KG Café de Especialidad Blend Huila, Colombia en Grano o Molido', 
+            'Proveniente de varias fincas de la región de Huila, Colombia, para ser tostado y envasado en Chile . Es un café con fragancia a caña dulce y floral, con notas a naranja, durazno y nueces. \$23.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Starbucks Talca ', 
-            '*Esta reseña esta bloqueda debido al uso indebido del lenguaje.*'
+            'Café grano molido Buffalo Soldier 227 g', 
+            'Descubre el poder de la naturaleza en cada taza con nuestra mezcla de café, caracterizada por su sabor intenso y aroma embriagador. Sus notas ahumadas y chocolateadas aportan un perfil de sabor único que estimula tus sentidos, el compañero perfecto para aquellos momentos en que necesitas un impulso de energía durante tu día. Disfrútalo al ritmo de tu playlist favorita. Este paquete incluye 227 gramos de café molido listo para deleitar tus papilas gustativas. \$11.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Mar Bella Concepcion ', 
-            'Un lugar clasico si vas a Concepcion, siempre he prefiro este lugar a la fuente alemana, los cafes cortados con las torta amor son excelentes. '
+            'Café Liofilizado Tradicional 50 g', 
+            'Disfruta del auténtico sabor del café colombiano con nuestro Café Soluble Liofilizado Tradicional. Elaborado 100% con café de Colombia, este producto garantiza un sabor y aroma incomparables, manteniendo siempre su excelente calidad. Su proceso de liofilización conserva todas las características esenciales del café, ofreciendo una experiencia única en cada taza. \$5.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Fuente Alemana ', 
-            'Me vendieron en azucar por separado, vayan al Mar Bella.'
+            'Café Liofilizado Orgánico 95 g', 
+            'Descubre el Café Soluble Liofilizado Orgánico de Juan Valdez. Este café premium, elaborado 100% con café colombiano, destaca por su sabor auténtico y su aroma delicioso. Nuestro proceso de liofilización preserva la esencia pura del café, mientras que su certificación orgánica garantiza que fue producido sin pesticidas ni productos químicos, empleando técnicas agrícolas sostenibles. \$7.99.'
           ),
         ],
       ),
@@ -55,7 +47,7 @@ class SearchReviewScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SearchReviewDetailScreen(title: title, description: description, imagePath: imagePath),
+            builder: (context) => MyPreferencesDetailCafeScreen(title: title, description: description, imagePath: imagePath),
           ),
         );
       },
@@ -66,7 +58,7 @@ class SearchReviewScreen extends StatelessWidget {
           children: <Widget>[
             Image.network(  //imagen por default
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjXRwATF9VsXmkz6EAsv5hpDT_TMId6mCTA&s',
-              height: 150,  // Ajusta la altura según sea necesario
+              height: 150,  // 
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -89,12 +81,12 @@ class SearchReviewScreen extends StatelessWidget {
   }
 }
 
-class SearchReviewDetailScreen extends StatelessWidget {
+class MyPreferencesDetailCafeScreen extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
 
-  const SearchReviewDetailScreen({super.key, required this.title, required this.description, required this.imagePath});
+  const MyPreferencesDetailCafeScreen({super.key, required this.title, required this.description, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -131,13 +123,12 @@ class SearchReviewDetailScreen extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              // Acción para añadir a favoritos
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Añadido a favoritos')),
+                const SnackBar(content: Text('Añadido a preferencias')),
               );
             },
-            tooltip: 'Añadir a favoritos',
-            child: const Icon(Icons.favorite),
+            tooltip: 'Añadir a preferencias',
+            child: const Icon(Icons.star),
            ),
            const SizedBox(height: 16), 
           FloatingActionButton(

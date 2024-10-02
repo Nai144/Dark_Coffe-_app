@@ -1,21 +1,20 @@
-// lib/classes/cafeteras.dart
-class Cafeteras {
+// lib/classes/ingredientes.dart
+class Ingredientes {
   // Atributos de la clase
   final String marca;
-  final String modelo;
-  final int capacidad; // Capacidad en tazas
+  final String titulo;
   final int precio;
   final String descripcion;
 
 
   // Constructor
-  Cafeteras({
+  Ingredientes({
     required this.marca,
-    required this.modelo,
-    required this.capacidad,
+    required this.titulo,
     required this.precio,
     required this.descripcion,
   });
 
 
+  
 }

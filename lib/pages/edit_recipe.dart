@@ -1,21 +1,13 @@
-import 'package:dark_coffe_app/pages/search_all_screen.dart';
 import 'package:flutter/material.dart';
 
-class SearchReviewScreen extends StatelessWidget {
-  const SearchReviewScreen({super.key});
+class EditRecipe extends StatelessWidget {
+  const EditRecipe({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reviews Populares'),
-        actions: [
-          IconButton(
-            onPressed: (){Navigator.push( context,
-            MaterialPageRoute(builder: (context) => const SearchAllScreen()));},
-            icon: const Icon(Icons.search)
-          ),
-        ],
+        title: const Text('Mis Recetas '),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -23,26 +15,26 @@ class SearchReviewScreen extends StatelessWidget {
           buildCafeteraCard(
             context,
             '', //aqui iran los link de las imagenes en la version final
-            'Assuan Concepcion ', 
-            'Los cafes son de maquina, pero son baratos y muy grandes, es sabor es normal, pero en lo que se destaca aqui son los dulces los cuales son extremadamente ricos, ademas de que no te costaran un ojo de la cara.'
+            'Café irlandés ', 
+            'Hoy quiero enseñaros cómo preparar un buen café irlandés, con la receta infalible para poder hacerlo en casa como si estuvieras en el mejor pub dublinense.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Starbucks Talca ', 
-            '*Esta reseña esta bloqueda debido al uso indebido del lenguaje.*'
+            'Café Árabe ', 
+            'Un café estilo Árabe es una bebida de café preparada tradicionalmente con especias como azafrán, cardamomo, clavos o canela.Las especias le dan al café un sabor muy especial.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Mar Bella Concepcion ', 
-            'Un lugar clasico si vas a Concepcion, siempre he prefiro este lugar a la fuente alemana, los cafes cortados con las torta amor son excelentes. '
+            'Café con leche ', 
+            'Ante el ingente catálogo de bebidas que se pueden preparar con una base de café, puede parecer que el café con leche es de las más simples y sencillas.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Fuente Alemana ', 
-            'Me vendieron en azucar por separado, vayan al Mar Bella.'
+            'Café cortado ', 
+            'Con leche y en taza pequeña. Un tipo de café que se inspira en la forma de tomarlo en el Mediterráneo, pero que añade ese ingrediente que tan bien combina con el café.'
           ),
         ],
       ),
@@ -55,7 +47,7 @@ class SearchReviewScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SearchReviewDetailScreen(title: title, description: description, imagePath: imagePath),
+            builder: (context) => EditRecipeDetail(title: title, description: description, imagePath: imagePath),
           ),
         );
       },
@@ -89,12 +81,12 @@ class SearchReviewScreen extends StatelessWidget {
   }
 }
 
-class SearchReviewDetailScreen extends StatelessWidget {
+class EditRecipeDetail extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
 
-  const SearchReviewDetailScreen({super.key, required this.title, required this.description, required this.imagePath});
+  const EditRecipeDetail({super.key, required this.title, required this.description, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -131,18 +123,16 @@ class SearchReviewDetailScreen extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              // Acción para añadir a favoritos
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Añadido a favoritos')),
+                const SnackBar(content: Text('Receta Editada')),
               );
             },
-            tooltip: 'Añadir a favoritos',
-            child: const Icon(Icons.favorite),
+            tooltip: 'Editar Receta',
+            child: const Icon(Icons.edit),
            ),
            const SizedBox(height: 16), 
           FloatingActionButton(
             onPressed: () {
-              // Acción para compartir
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Compartir')),
               );

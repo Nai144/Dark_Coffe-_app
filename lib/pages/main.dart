@@ -1,20 +1,24 @@
+import 'package:dark_coffe_app/pages/edit_recipe.dart';
 import 'package:dark_coffe_app/pages/my_favorite_screen.dart';
-import 'package:dark_coffe_app/pages/my_preferences_screen.dart';
+import 'package:dark_coffe_app/pages/my_preferences/my_preferences_screen.dart';
 import 'package:dark_coffe_app/pages/search_all_screen.dart';
 import 'package:dark_coffe_app/pages/search_recipes_screen.dart';
 import 'package:dark_coffe_app/pages/search_review_screen.dart';
+import 'package:dark_coffe_app/pages/update_recipe.dart';
+import 'package:dark_coffe_app/pages/user_config.dart';
+import 'package:dark_coffe_app/pages/user_profile.dart';
 import 'package:flutter/material.dart';
 
 
 void main() {
   runApp(MaterialApp(
-    title: 'Navigation Basics',
+    title: 'Dark_Cofee_App',
     home: const HomePage(),
     debugShowCheckedModeBanner:false,
     theme: ThemeData(
       brightness: Brightness.dark,
     //  primaryColor: Colors.lightBlue[800],
-     // hintColor: Colors.cyan[600],
+     // hintColor: Colors.cyan[600], cambiar dsp para la gama eligida
     ),
   ));
 }
@@ -83,18 +87,38 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.home),
-                title: const Text('Inicio'),
+                title: const Text('Perfil'),
                 onTap: () {
-                  // Acción al pulsar el item
-                  Navigator.pop(context);
+                  Navigator.push( context,
+                  MaterialPageRoute(builder: (context) => const UserProfile()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.receipt_long),
+                title: const Text('Añadir una receta'),
+                onTap: () {
+                  Navigator.push( context,
+                  MaterialPageRoute(builder: (context) => const UpdateRecipe()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.edit),
+                title: const Text('Mis Recetas '),
+                onTap: () {
+                  Navigator.push( context,
+                  MaterialPageRoute(builder: (context) => const EditRecipe()),
+                  );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.settings),
                 title: const Text('Configuración'),
                 onTap: () {
-                  // Acción al pulsar el item
-                  Navigator.pop(context);
+                  Navigator.push( context,
+                  MaterialPageRoute(builder: (context) => const UserConfig()),
+                  );
                 },
               ),
             ],
@@ -150,7 +174,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 270.0,
+                      height: 250.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
@@ -183,7 +207,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 270.0,
+                      height: 250.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(

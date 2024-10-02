@@ -1,21 +1,13 @@
-import 'package:dark_coffe_app/pages/search_all_screen.dart';
 import 'package:flutter/material.dart';
 
-class SearchReviewScreen extends StatelessWidget {
-  const SearchReviewScreen({super.key});
+class MyPreferencesListCafeterasScreen extends StatelessWidget {
+  const MyPreferencesListCafeterasScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reviews Populares'),
-        actions: [
-          IconButton(
-            onPressed: (){Navigator.push( context,
-            MaterialPageRoute(builder: (context) => const SearchAllScreen()));},
-            icon: const Icon(Icons.search)
-          ),
-        ],
+        title: const Text('Cafeteras'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -23,26 +15,26 @@ class SearchReviewScreen extends StatelessWidget {
           buildCafeteraCard(
             context,
             '', //aqui iran los link de las imagenes en la version final
-            'Assuan Concepcion ', 
-            'Los cafes son de maquina, pero son baratos y muy grandes, es sabor es normal, pero en lo que se destaca aqui son los dulces los cuales son extremadamente ricos, ademas de que no te costaran un ojo de la cara.'
+            'Cafetera Compacta Espresso BVSTEM7200 Oster', 
+            'La cafetera compacta de espresso Oster® te permite sentirte como un barista en casa. Con sistema de pre-infusión y tecnología para un precalentamiento rápido y control automático de temperatura. Crea una crema densa y cremosa con su bomba italiana de 15 bar de presión. El visor de presión te guía para una extracción ideal de café. ¡Prepara lattes y cappuccinos deliciosos con esta cafetera compacta! \$269.99.'
+          ),
+          buildCafeteraCard(
+            context,
+            '', //aqui iran los link de las imagenes en la version final
+            'Cafetera Nespresso Pixie', 
+            'Esta cafetera es compacta y eficiente. Tiene una capacidad de 2 tazas y su precio es de \$109.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Starbucks Talca ', 
-            '*Esta reseña esta bloqueda debido al uso indebido del lenguaje.*'
+            'Cafetera Espresso Dedica DeLonghi', 
+            'Disfruta del mejor café en casa con la Cafetera Espresso Dedica DeLonghi. Su diseño elegante y compacto te permite preparar el café perfecto con solo un toque. Con la cafetera Delonghi Dedica, podrás disfrutar de espresso de calidad barista en la comodidad de tu hogar. ¡Hazte con la tuya y despierta tus sentidos cada mañana! \$299.99.'
           ),
           buildCafeteraCard(
             context,
             '', 
-            'Mar Bella Concepcion ', 
-            'Un lugar clasico si vas a Concepcion, siempre he prefiro este lugar a la fuente alemana, los cafes cortados con las torta amor son excelentes. '
-          ),
-          buildCafeteraCard(
-            context,
-            '', 
-            'Fuente Alemana ', 
-            'Me vendieron en azucar por separado, vayan al Mar Bella.'
+            'Cafetera Breville Barista', 
+            'Una cafetera premium que ofrece café de calidad profesional. Su precio es de \$299.99.'
           ),
         ],
       ),
@@ -52,10 +44,11 @@ class SearchReviewScreen extends StatelessWidget {
   Widget buildCafeteraCard(BuildContext context, String imagePath, String title, String description) {
     return InkWell(
       onTap: () {
+        // Navegar a la pantalla de detalles al pulsar sobre la tarjeta
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SearchReviewDetailScreen(title: title, description: description, imagePath: imagePath),
+            builder: (context) => MyPreferencesDetailCafeterasScreen(title: title, description: description, imagePath: imagePath),
           ),
         );
       },
@@ -89,12 +82,12 @@ class SearchReviewScreen extends StatelessWidget {
   }
 }
 
-class SearchReviewDetailScreen extends StatelessWidget {
+class MyPreferencesDetailCafeterasScreen extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
 
-  const SearchReviewDetailScreen({super.key, required this.title, required this.description, required this.imagePath});
+  const MyPreferencesDetailCafeterasScreen({super.key, required this.title, required this.description, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -131,18 +124,16 @@ class SearchReviewDetailScreen extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              // Acción para añadir a favoritos
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Añadido a favoritos')),
+                const SnackBar(content: Text('Añadido a preferencias')),
               );
             },
-            tooltip: 'Añadir a favoritos',
-            child: const Icon(Icons.favorite),
+            tooltip: 'Añadir a preferencias',
+            child: const Icon(Icons.star),
            ),
            const SizedBox(height: 16), 
           FloatingActionButton(
             onPressed: () {
-              // Acción para compartir
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Compartir')),
               );
