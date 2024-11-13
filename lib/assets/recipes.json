@@ -1,0 +1,22 @@
+[
+    {
+      "title": "Café irlandés",
+      "description": "Cómo preparar un buen café irlandés.",
+      "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjXRwATF9VsXmkz6EAsv5hpDT_TMId6mCTA&s"
+    },
+    {
+      "title": "Café Árabe",
+      "description": "Un café con especias como azafrán y cardamomo.",
+      "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjXRwATF9VsXmkz6EAsv5hpDT_TMId6mCTA&s"
+    },
+    {
+      "title": "Café con leche",
+      "description": "Una de las bebidas más simples y sencillas.",
+      "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjXRwATF9VsXmkz6EAsv5hpDT_TMId6mCTA&s"
+    },
+    {
+      "title": "Café cortado",
+      "description": "Con leche en taza pequeña.",
+      "imagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjXRwATF9VsXmkz6EAsv5hpDT_TMId6mCTA&s"
+    }
+  ]

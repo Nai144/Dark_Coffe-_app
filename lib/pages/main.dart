@@ -1,3 +1,5 @@
+import 'package:dark_coffe_app/lib/classes/DatabaseHelper.dart';
+import 'package:dark_coffe_app/lib/classes/review.dart';
 import 'package:dark_coffe_app/pages/edit_recipe.dart';
 import 'package:dark_coffe_app/pages/my_favorite_screen.dart';
 import 'package:dark_coffe_app/pages/my_preferences/my_preferences_screen.dart';
@@ -7,7 +9,9 @@ import 'package:dark_coffe_app/pages/search_review_screen.dart';
 import 'package:dark_coffe_app/pages/update_recipe.dart';
 import 'package:dark_coffe_app/pages/user_config.dart';
 import 'package:dark_coffe_app/pages/user_profile.dart';
+import 'package:dark_coffe_app/pages/your_opinion.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 
 
 void main() {
@@ -17,8 +21,7 @@ void main() {
     debugShowCheckedModeBanner:false,
     theme: ThemeData(
       brightness: Brightness.dark,
-    //  primaryColor: Colors.lightBlue[800],
-     // hintColor: Colors.cyan[600], cambiar dsp para la gama eligida
+    
     ),
   ));
 }
@@ -31,9 +34,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
- int _selectedIndex = 1;
-  
-
+  int _selectedIndex = 1;
+  //late Future<List<Review>> futureReviews;
+  //Future<List<Review>> futureReviews = DatabaseHelper.reviews();
+  @override
+  void initState() {
+  super.initState();
+  // Ejecuta la operación de inserción de manera asíncrona
+  WidgetsBinding.instance.addPostFrameCallback((_) async {
+   // await DatabaseHelper.insertInitialReviews();
+  });
+}
  static const List<Widget> _pages = <Widget>[
     MyFavoriteScreen(),
     WelcomeScreen(),
@@ -53,6 +64,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -96,7 +108,7 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.receipt_long),
-                title: const Text('Añadir una receta'),
+                title: const Text('Añadir una receta/review'),
                 onTap: () {
                   Navigator.push( context,
                   MaterialPageRoute(builder: (context) => const UpdateRecipe()),
@@ -118,6 +130,15 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push( context,
                   MaterialPageRoute(builder: (context) => const UserConfig()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.book_rounded),
+                title: const Text('Tu opinion'),
+                onTap: () {
+                  Navigator.push( context,
+                  MaterialPageRoute(builder: (context) => const YourOpinion()),
                   );
                 },
               ),
@@ -234,7 +255,6 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-
 
 
 
