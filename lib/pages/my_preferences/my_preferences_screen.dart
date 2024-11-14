@@ -38,7 +38,7 @@ class MyPreferencesScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: 180.0,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: const DecorationImage(
@@ -73,7 +73,7 @@ class MyPreferencesScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: 180.0,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: const DecorationImage(
@@ -112,7 +112,7 @@ class MyPreferencesScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: 180.0,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: const DecorationImage(
@@ -147,7 +147,7 @@ class MyPreferencesScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: MediaQuery.of(context).size.height,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: const DecorationImage(
